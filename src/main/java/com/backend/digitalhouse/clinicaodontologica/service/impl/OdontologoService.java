@@ -71,7 +71,7 @@ public class OdontologoService implements IOdontologoService {
     }
 
     @Override
-    public OdontologoSalidaDto modificarOdontologo(OdontologoEntradaDto odontologoEntradaDto, Long id) {
+    public OdontologoSalidaDto actualizarOdontologo(OdontologoEntradaDto odontologoEntradaDto, Long id) throws ResourceNotFoundException{
         Odontologo odontologoRecibido = modelMapper.map(odontologoEntradaDto, Odontologo.class);
         Odontologo odontologoAActualizar = odontologoRepository.findById(id).orElse(null);
         OdontologoSalidaDto odontologoSalidaDto = null;
@@ -89,7 +89,7 @@ public class OdontologoService implements IOdontologoService {
 
         } else {
             LOGGER.error("No fue posible actualizar los datos ya que el odontologo no se encuentra registrado");
-
+            throw new ResourceNotFoundException("No fue posible actualizar los datos ya que el odontologo no se encuentra registrado");
         }
         return odontologoSalidaDto;
     }

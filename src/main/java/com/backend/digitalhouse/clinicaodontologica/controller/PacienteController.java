@@ -49,8 +49,8 @@ public class PacienteController {
     }
 
     //DELETE
-    @DeleteMapping("/eliminar")//localhost:8080/pacientes/eliminar?id=x
-    public ResponseEntity<?> eliminarPaciente(@RequestParam Long id)  {
+    @DeleteMapping("/eliminar/{id}")//localhost:8080/pacientes/eliminar?id=x
+    public ResponseEntity<?> eliminarPaciente(@PathVariable Long id)  {
         pacienteService.eliminarPaciente(id);
         return new ResponseEntity<>("Paciente eliminado correctamente", HttpStatus.NO_CONTENT);
     }

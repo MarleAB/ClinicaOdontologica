@@ -43,10 +43,9 @@ public class OdontologoController {
     }
 
     //PUT
-
     @PutMapping("actualizar/{id}")
     public ResponseEntity<OdontologoSalidaDto> actualizarOdontologo(@Valid @RequestBody OdontologoEntradaDto odontologo, @PathVariable Long id) {
-        return null; //pacienteService.actualizar(paciente, id);
+        return new ResponseEntity<>(odontologoService.actualizarOdontologo(odontologo,id), HttpStatus.OK);
     }
 
     //GET
@@ -63,7 +62,7 @@ public class OdontologoController {
                     content = @Content)
     })
     @GetMapping("{id}")
-    public ResponseEntity<OdontologoSalidaDto> obtenerOdontologoPorId(@PathVariable Long id) {
+    public ResponseEntity<OdontologoSalidaDto> buscarOdontologoPorId(@PathVariable Long id) {
         return new ResponseEntity<>(odontologoService.buscarOdontologoPorId(id), HttpStatus.OK);
     }
 
