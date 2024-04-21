@@ -1,18 +1,21 @@
-package com.backend.digitalhouse.clinicaodontologica.dto.salida;
+package com.backend.digitalhouse.clinicaodontologica.dto.salida.turno;
 
-public class OdontologoSalidaDto {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class OdontologoTurnoSalidaDto {
 
     private Long id;
-    private String matricula;
+
     private String nombre;
+
     private String apellido;
 
-    public OdontologoSalidaDto() {
+    public OdontologoTurnoSalidaDto() {
     }
 
-    public OdontologoSalidaDto(Long id, String matricula, String nombre, String apellido) {
+    public OdontologoTurnoSalidaDto(Long id, String nombre, String apellido) {
         this.id = id;
-        this.matricula = matricula;
         this.nombre = nombre;
         this.apellido = apellido;
     }
@@ -23,14 +26,6 @@ public class OdontologoSalidaDto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
     }
 
     public String getNombre() {

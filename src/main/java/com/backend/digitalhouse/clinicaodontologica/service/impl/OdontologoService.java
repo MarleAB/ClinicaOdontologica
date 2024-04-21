@@ -1,7 +1,7 @@
 package com.backend.digitalhouse.clinicaodontologica.service.impl;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.OdontologoEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.OdontologoSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.odontologo.OdontologoEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.digitalhouse.clinicaodontologica.entity.Odontologo;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import com.backend.digitalhouse.clinicaodontologica.repository.OdontologoRepository;
@@ -39,7 +39,6 @@ public class OdontologoService implements IOdontologoService {
     @Override
     public OdontologoSalidaDto buscarOdontologoPorId(Long id) {
         Odontologo odontologoBuscado = odontologoRepository.findById(id).orElse(null);
-
         OdontologoSalidaDto odontologoSalidaDto = null;
         if (odontologoBuscado != null) {
             odontologoSalidaDto = modelMapper.map(odontologoBuscado, OdontologoSalidaDto.class);
@@ -92,8 +91,6 @@ public class OdontologoService implements IOdontologoService {
             LOGGER.error("No fue posible actualizar los datos ya que el odontologo no se encuentra registrado");
 
         }
-
-
         return odontologoSalidaDto;
     }
 }

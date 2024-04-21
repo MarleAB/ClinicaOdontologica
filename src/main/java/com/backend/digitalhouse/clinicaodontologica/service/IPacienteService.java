@@ -1,7 +1,7 @@
 package com.backend.digitalhouse.clinicaodontologica.service;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.PacienteEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.PacienteSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.paciente.PacienteSalidaDto;
 import org.apache.velocity.exception.ResourceNotFoundException;
 
 

@@ -1,7 +1,8 @@
 package com.backend.digitalhouse.clinicaodontologica.service;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.TurnoEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.TurnoSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.modificacion.TurnoModificacionEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.turno.TurnoEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.turno.TurnoSalidaDto;
 import org.apache.coyote.BadRequestException;
 import org.apache.velocity.exception.ResourceNotFoundException;
 
@@ -18,6 +19,6 @@ public interface ITurnoService {
 
     void eliminarTurno(Long id) throws ResourceNotFoundException;
 
-    TurnoSalidaDto modificarTurno(TurnoEntradaDto turnoEntradaDto, Long id);
+    TurnoSalidaDto modificarTurno(TurnoModificacionEntradaDto turnoModificacionEntradaDto);
 }
 

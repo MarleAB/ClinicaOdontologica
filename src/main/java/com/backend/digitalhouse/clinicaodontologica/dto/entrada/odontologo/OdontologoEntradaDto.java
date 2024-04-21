@@ -1,13 +1,15 @@
-package com.backend.digitalhouse.clinicaodontologica.dto.entrada;
+package com.backend.digitalhouse.clinicaodontologica.dto.entrada.odontologo;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class OdontologoEntradaDto {
 
     @NotNull(message = "La matricula no puede ser nulo")
     @NotBlank(message = "Debe especificarse la matricula del odontólogo")
+    //@Pattern(regexp = "^[A-Z]{2}-\\d{1,3}\\d*$")
     @Size(min = 10, max = 50, message = "El campo debe tener mínimo 10 caracteres")
     private String matricula;
 

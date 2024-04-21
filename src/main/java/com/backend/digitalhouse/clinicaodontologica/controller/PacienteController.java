@@ -1,10 +1,9 @@
 package com.backend.digitalhouse.clinicaodontologica.controller;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.PacienteEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.PacienteSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.digitalhouse.clinicaodontologica.service.IPacienteService;
 import jakarta.validation.Valid;
-import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +30,7 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}") //localhost:8080/pacientes/x
-    public ResponseEntity<PacienteSalidaDto> buscarPacientePorId(@PathVariable Long id) {
+    public ResponseEntity<PacienteSalidaDto> obtenerPacientePorId(@PathVariable Long id) {
         return new ResponseEntity<>(pacienteService.buscarPacientePorId(id), HttpStatus.OK);
     }
 
@@ -45,13 +44,13 @@ public class PacienteController {
 
     //PUT
     @PutMapping("/actualizar/{id}")//localhost:8080/pacientes/actualizar/x
-    public ResponseEntity<PacienteSalidaDto> actualizarPaciente(@Valid @RequestBody PacienteEntradaDto paciente, @PathVariable Long id) throws ResourceNotFoundException {
+    public ResponseEntity<PacienteSalidaDto> actualizarPaciente(@Valid @RequestBody PacienteEntradaDto paciente, @PathVariable Long id)  {
         return new ResponseEntity<>(pacienteService.modificarPaciente(paciente, id), HttpStatus.OK);
     }
 
     //DELETE
     @DeleteMapping("/eliminar")//localhost:8080/pacientes/eliminar?id=x
-    public ResponseEntity<?> eliminarPaciente(@RequestParam Long id) throws ResourceNotFoundException {
+    public ResponseEntity<?> eliminarPaciente(@RequestParam Long id)  {
         pacienteService.eliminarPaciente(id);
         return new ResponseEntity<>("Paciente eliminado correctamente", HttpStatus.NO_CONTENT);
     }

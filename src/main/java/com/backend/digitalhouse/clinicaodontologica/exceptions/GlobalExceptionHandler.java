@@ -23,20 +23,25 @@ public class GlobalExceptionHandler {
 
 
     //manejo global de la BadRequest
+    @ExceptionHandler({BadRequestException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String,String> manejarBadRequest(BadRequestException exception){
+        Map<String, String> exceptionMessage = new HashMap<>();
+        exceptionMessage.put("mensaje", "Bad request:" + exception.getMessage());
+        return exceptionMessage;
+    }
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String, String> manejarValidationException(MethodArgumentNotValidException methodArgumentNotValidException) {
+    public Map<String, String> manejarValidationException(MethodArgumentNotValidException exception) {
 
-        Map<String, String> mensaje = new HashMap<>();
-
-        methodArgumentNotValidException.getBindingResult().getAllErrors().forEach(e -> {
-            String nombreCampo = ((FieldError) e).getField();
-            String mensajeError = e.getDefaultMessage();
-            mensaje.put(nombreCampo, mensajeError);
+        Map<String, String> exceptionMessage = new HashMap<>();
+        exception.getBindingResult().getAllErrors().forEach(objectError -> {
+            String fieldName = ((FieldError) objectError).getField();
+            String errorMessage = objectError.getDefaultMessage();
+            exceptionMessage.put(fieldName, errorMessage);
         });
-
-        return mensaje;
+        return exceptionMessage;
     }
 }
 

@@ -1,7 +1,7 @@
 package com.backend.digitalhouse.clinicaodontologica.controller;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.TurnoEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.TurnoSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.turno.TurnoEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.turno.TurnoSalidaDto;
 import com.backend.digitalhouse.clinicaodontologica.service.ITurnoService;
 import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;

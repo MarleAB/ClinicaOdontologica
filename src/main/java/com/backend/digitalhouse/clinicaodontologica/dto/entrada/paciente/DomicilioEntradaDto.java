@@ -1,4 +1,4 @@
-package com.backend.digitalhouse.clinicaodontologica.dto.entrada;
+package com.backend.digitalhouse.clinicaodontologica.dto.entrada.paciente;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -12,8 +12,8 @@ public class DomicilioEntradaDto {
     @Size(max = 50, message = "El nombre debe tener hasta 50 caracteres")
     private String calle;
 
-    //@NotNull(message = "El campo numero no puede ser nulo")
-    @Positive(message = "El numero no puede ser nulo o menor a cero")
+    @NotNull(message = "El campo numero no puede ser nulo")
+    //@Positive(message = "El numero no puede ser nulo o menor a cero")
     @Digits(integer = 8, fraction = 0, message = "El número debe tener como máximo 8 dígitos")
     private int numero;
 

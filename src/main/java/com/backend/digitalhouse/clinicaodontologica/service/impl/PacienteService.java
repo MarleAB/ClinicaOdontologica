@@ -1,7 +1,7 @@
 package com.backend.digitalhouse.clinicaodontologica.service.impl;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.PacienteEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.PacienteSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.paciente.PacienteEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.paciente.PacienteSalidaDto;
 import com.backend.digitalhouse.clinicaodontologica.entity.Paciente;
 import com.backend.digitalhouse.clinicaodontologica.repository.PacienteRepository;
 import com.backend.digitalhouse.clinicaodontologica.service.IPacienteService;
@@ -63,14 +63,11 @@ public class PacienteService implements IPacienteService {
 
     @Override
     public PacienteSalidaDto buscarPacientePorId(Long id) {
-
         Paciente pacienteBuscado = pacienteRepository.findById(id).orElse(null);
         PacienteSalidaDto pacienteEncontrado = null;
-
         if (pacienteBuscado != null) {
             pacienteEncontrado = modelMapper.map(pacienteBuscado, PacienteSalidaDto.class);
             LOGGER.info("Paciente encontrado: {}", JsonPrinter.toString(pacienteEncontrado));
-
         } else
             LOGGER.error("No se ha encontrado el paciente con id {}", id);
 

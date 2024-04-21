@@ -1,7 +1,7 @@
 package com.backend.digitalhouse.clinicaodontologica.service;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.OdontologoEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.OdontologoSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.odontologo.OdontologoEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.digitalhouse.clinicaodontologica.exceptions.ResourceNotFoundException;
 
 import java.util.List;

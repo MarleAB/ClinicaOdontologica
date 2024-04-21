@@ -1,30 +1,39 @@
-package com.backend.digitalhouse.clinicaodontologica.dto.entrada;
+package com.backend.digitalhouse.clinicaodontologica.dto.entrada.modificacion;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.FutureOrPresent;
+
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-public class TurnoEntradaDto {
+public class TurnoModificacionEntradaDto {
 
-    @NotNull(message = "El paciente no puede ser nulo")
+    @NotNull
+    private Long id;
+
+    @NotNull()
     private Long pacienteId;
 
-    @NotNull(message = "El odontologo no puede ser nulo")
+    @NotNull()
     private Long odontologoId;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    @FutureOrPresent(message = "La fecha no puede ser anterior al día de hoy")
-    @NotNull(message = "Debe especificarse la fecha y hora del turno")
+    @NotNull()
     private LocalDateTime fechaYHora;
 
-    public TurnoEntradaDto() {
+    public TurnoModificacionEntradaDto() {
     }
 
-    public TurnoEntradaDto(Long pacienteId, Long odontologoId, LocalDateTime fechaYHora) {
+    public TurnoModificacionEntradaDto(Long id, Long pacienteId, Long odontologoId, LocalDateTime fechaYHora) {
+        this.id = id;
         this.pacienteId = pacienteId;
         this.odontologoId = odontologoId;
         this.fechaYHora = fechaYHora;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getPacienteId() {

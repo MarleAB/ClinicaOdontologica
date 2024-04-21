@@ -1,7 +1,7 @@
 package com.backend.digitalhouse.clinicaodontologica.controller;
 
-import com.backend.digitalhouse.clinicaodontologica.dto.entrada.OdontologoEntradaDto;
-import com.backend.digitalhouse.clinicaodontologica.dto.salida.OdontologoSalidaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.entrada.odontologo.OdontologoEntradaDto;
+import com.backend.digitalhouse.clinicaodontologica.dto.salida.odontologo.OdontologoSalidaDto;
 import com.backend.digitalhouse.clinicaodontologica.service.impl.OdontologoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -67,6 +67,16 @@ public class OdontologoController {
         return new ResponseEntity<>(odontologoService.buscarOdontologoPorId(id), HttpStatus.OK);
     }
 
+    @Operation(summary = "Listado de todos los odontologos")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Listado de odontologos obtenido correctamente",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = OdontologoSalidaDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Bad Request",
+                    content = @Content),
+            @ApiResponse(responseCode = "500", description = "Server error",
+                    content = @Content)
+    })
 
     @GetMapping()
 
