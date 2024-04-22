@@ -8,8 +8,14 @@ import org.springframework.context.annotation.Bean;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
+
 public class ClinicaOdontologicaApplication {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(ClinicaOdontologicaApplication.class);
@@ -28,5 +34,4 @@ public class ClinicaOdontologicaApplication {
 	WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> enableDefaultServlet() {
 		return factory -> factory.setRegisterDefaultServlet(true);
 	}
-
 }
