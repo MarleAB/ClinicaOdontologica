@@ -71,7 +71,6 @@ public class PacienteService implements IPacienteService {
         } else
             LOGGER.error("No se ha encontrado el paciente con id {}", id);
 
-
         return pacienteEncontrado;
     }
 
@@ -87,7 +86,7 @@ public class PacienteService implements IPacienteService {
     }
 
     @Override
-    public PacienteSalidaDto modificarPaciente(PacienteEntradaDto pacienteEntradaDto, Long id) throws ResourceNotFoundException {
+    public PacienteSalidaDto actualizarPaciente(PacienteEntradaDto pacienteEntradaDto, Long id) throws ResourceNotFoundException {
         Paciente pacienteRecibido = modelMapper.map(pacienteEntradaDto, Paciente.class);
         Paciente pacienteAActualizar = pacienteRepository.findById(id).orElse(null);
 
@@ -111,7 +110,6 @@ public class PacienteService implements IPacienteService {
             LOGGER.error("No fue posible actualizar el paciente porque no se encuentra en nuestra base de datos");
             throw new ResourceNotFoundException("No es posible actualizar el paciente con id " + id + " ya que no se encuentra en nuestra base de datos");
         }
-
 
         return pacienteSalidaDto;
     }

@@ -3,12 +3,11 @@ package com.backend.digitalhouse.clinicaodontologica.dto.salida.turno;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+
 public class OdontologoTurnoSalidaDto {
 
     private Long id;
-
     private String nombre;
-
     private String apellido;
 
     public OdontologoTurnoSalidaDto() {

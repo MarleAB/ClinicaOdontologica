@@ -7,18 +7,17 @@ import org.springframework.web.servlet.config.annotation.*;
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
-        if (!registry.hasMappingForPattern("/api-docs/**")) {
-            registry.addResourceHandler("/api-docs/**")
+   @Override
+   public void addResourceHandlers(ResourceHandlerRegistry registry) {
+       if (!registry.hasMappingForPattern("/api-docs/**")) {
+           registry.addResourceHandler("/api-docs/**")
                     .addResourceLocations("classpath:/api/");
         }
     }
 
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/swagger-ui.html", "/swagger-ui/index.html");
+        //registry.addRedirectViewController("/swagger-ui.html", "/swagger-ui/index.html");
     }
 
     @Override

@@ -23,17 +23,6 @@ public class PacienteController {
         this.pacienteService = pacienteService;
     }
 
-    //GET
-    @GetMapping()
-    public ResponseEntity<List<PacienteSalidaDto>> listarPacientes() {
-        return new ResponseEntity<>(pacienteService.listarPacientes(), HttpStatus.OK);
-    }
-
-    @GetMapping("/{id}") //localhost:8080/pacientes/x
-    public ResponseEntity<PacienteSalidaDto> obtenerPacientePorId(@PathVariable Long id) {
-        return new ResponseEntity<>(pacienteService.buscarPacientePorId(id), HttpStatus.OK);
-    }
-
 
     //POST
     @PostMapping("/registrar")
@@ -45,7 +34,19 @@ public class PacienteController {
     //PUT
     @PutMapping("/actualizar/{id}")//localhost:8080/pacientes/actualizar/x
     public ResponseEntity<PacienteSalidaDto> actualizarPaciente(@Valid @RequestBody PacienteEntradaDto paciente, @PathVariable Long id)  {
-        return new ResponseEntity<>(pacienteService.modificarPaciente(paciente, id), HttpStatus.OK);
+        return new ResponseEntity<>(pacienteService.actualizarPaciente(paciente, id), HttpStatus.OK);
+    }
+
+    //GET
+    @GetMapping()
+    public ResponseEntity<List<PacienteSalidaDto>> listarPacientes() {
+        return new ResponseEntity<>(pacienteService.listarPacientes(), HttpStatus.OK);
+    }
+
+    //GET POR ID
+    @GetMapping("/{id}") //localhost:8080/pacientes/x
+    public ResponseEntity<PacienteSalidaDto> obtenerPacientePorId(@PathVariable Long id) {
+        return new ResponseEntity<>(pacienteService.buscarPacientePorId(id), HttpStatus.OK);
     }
 
     //DELETE

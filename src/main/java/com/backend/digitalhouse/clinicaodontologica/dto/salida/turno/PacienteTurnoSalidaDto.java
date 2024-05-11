@@ -6,9 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class PacienteTurnoSalidaDto {
 
     private Long id;
-
     private String nombre;
-
     private String apellido;
 
     public PacienteTurnoSalidaDto() {

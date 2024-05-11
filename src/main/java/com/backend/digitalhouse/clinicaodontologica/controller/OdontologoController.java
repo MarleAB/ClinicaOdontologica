@@ -46,27 +46,10 @@ public class OdontologoController {
 
     @PutMapping("actualizar/{id}")
     public ResponseEntity<OdontologoSalidaDto> actualizarOdontologo(@Valid @RequestBody OdontologoEntradaDto odontologo, @PathVariable Long id) {
-        return null; //pacienteService.actualizar(paciente, id);
+        return new ResponseEntity<>(odontologoService.actualizarOdontologo(odontologo, id), HttpStatus.OK);
     }
 
     //GET
-    @Operation(summary = "Búsqueda de un odontólogo por Id")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Odontólogo obtenido correctamente",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = OdontologoSalidaDto.class))}),
-            @ApiResponse(responseCode = "400", description = "Id inválido",
-                    content = @Content),
-            @ApiResponse(responseCode = "404", description = "Odontólogo no encontrado",
-                    content = @Content),
-            @ApiResponse(responseCode = "500", description = "Server error",
-                    content = @Content)
-    })
-    @GetMapping("{id}")
-    public ResponseEntity<OdontologoSalidaDto> obtenerOdontologoPorId(@PathVariable Long id) {
-        return new ResponseEntity<>(odontologoService.buscarOdontologoPorId(id), HttpStatus.OK);
-    }
-
     @Operation(summary = "Listado de todos los odontologos")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Listado de odontologos obtenido correctamente",
@@ -82,6 +65,24 @@ public class OdontologoController {
 
     public ResponseEntity<List<OdontologoSalidaDto>> listarOdontologos() {
         return new ResponseEntity<>(odontologoService.listarOdontologos(), HttpStatus.OK);
+    }
+
+    //GET POR ID
+    @Operation(summary = "Búsqueda de un odontólogo por Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Odontólogo obtenido correctamente",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = OdontologoSalidaDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Id inválido",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Odontólogo no encontrado",
+                    content = @Content),
+            @ApiResponse(responseCode = "500", description = "Server error",
+                    content = @Content)
+    })
+    @GetMapping("{id}")
+    public ResponseEntity<OdontologoSalidaDto> obtenerOdontologoPorId(@PathVariable Long id) {
+        return new ResponseEntity<>(odontologoService.buscarOdontologoPorId(id), HttpStatus.OK);
     }
 
     //DELETE

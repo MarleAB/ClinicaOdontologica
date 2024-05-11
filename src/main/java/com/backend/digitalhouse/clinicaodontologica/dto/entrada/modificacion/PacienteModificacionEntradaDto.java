@@ -8,7 +8,8 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PacienteModificacionEntradaDto {
+public class
+PacienteModificacionEntradaDto {
 
     @NotNull(message = "Debe proveerse el id del paciente que se desea modificar")
     private Long id;

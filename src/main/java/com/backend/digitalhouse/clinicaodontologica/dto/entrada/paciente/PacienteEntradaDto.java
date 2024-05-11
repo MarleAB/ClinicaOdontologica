@@ -49,7 +49,6 @@ public class PacienteEntradaDto {
     }
 
     public void setNombre(String nombre) {
-
         this.nombre = nombre;
     }
 
@@ -58,7 +57,6 @@ public class PacienteEntradaDto {
     }
 
     public void setApellido(String apellido) {
-
         this.apellido = apellido;
     }
 
@@ -67,22 +65,18 @@ public class PacienteEntradaDto {
     }
 
     public void setDni(int dni) {
-
         this.dni = dni;
     }
 
     public LocalDate getFechaIngreso() {
-
         return fechaIngreso;
     }
 
     public void setFechaIngreso(LocalDate fechaIngreso) {
-
         this.fechaIngreso = fechaIngreso;
     }
 
     public DomicilioEntradaDto getDomicilioEntradaDto() {
-
         return domicilio;
     }
 

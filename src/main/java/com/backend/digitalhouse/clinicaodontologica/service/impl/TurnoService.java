@@ -90,7 +90,7 @@ public class TurnoService implements ITurnoService {
         if(turnoBuscado != null) {
             turnoSalidaDto = entidadADto(turnoBuscado);
             LOGGER.info("Turno encontrado: {}", turnoSalidaDto);
-        }else LOGGER.info("el id no se encuentra registrado en la base de datos", turnoSalidaDto);
+        }else LOGGER.info("el turno no se encuentra registrado en la base de datos", turnoSalidaDto);
 
         return turnoSalidaDto;
     }
@@ -107,7 +107,7 @@ public class TurnoService implements ITurnoService {
     }
 
     @Override
-    public TurnoSalidaDto modificarTurno(TurnoModificacionEntradaDto turnoModificacionEntradaDto) throws ResourceNotFoundException {
+    public TurnoSalidaDto actualizarTurno(TurnoModificacionEntradaDto turnoModificacionEntradaDto) throws ResourceNotFoundException {
 
         Turno turnoActualizar = turnoRepository.findById(turnoModificacionEntradaDto.getId()).orElse(null);
         TurnoSalidaDto turnoSalidaDto = null;

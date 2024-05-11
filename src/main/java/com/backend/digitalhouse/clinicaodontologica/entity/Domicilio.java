@@ -16,6 +16,7 @@ public class Domicilio {
 
     @Column(length = 8)
     private int numero;
+
     @Column(length = 50)
     private String localidad;
 
