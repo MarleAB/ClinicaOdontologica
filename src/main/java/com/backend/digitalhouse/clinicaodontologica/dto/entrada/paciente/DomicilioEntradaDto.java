@@ -1,10 +1,9 @@
 package com.backend.digitalhouse.clinicaodontologica.dto.entrada.paciente;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 
-@ApiModel(description = "Estructura de datos de entrada para el domicilio del paciente")
+@Schema(description = "Estructura de datos de entrada para el domicilio del paciente")
 public class DomicilioEntradaDto {
 
     @NotNull(message = "El campo calle no puede ser nulo")
@@ -24,7 +23,7 @@ public class DomicilioEntradaDto {
 
     @NotNull(message = "El campo provincia no puede ser nulo")
     @NotBlank(message = "El campo provincia no puede estar en blanco")
-    @ApiModelProperty(notes = "Hace referencia a la provincia correspondiente al domicilio. Opciones: CO, BA, CH")
+    @Schema(description = "Hace referencia a la provincia correspondiente al domicilio. Opciones: CO, BA, CH")
     private String provincia;
 
 
@@ -71,4 +70,3 @@ public class DomicilioEntradaDto {
         this.provincia = provincia;
     }
 }
-

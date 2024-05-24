@@ -1,52 +1,37 @@
 package com.backend.digitalhouse.clinicaodontologica.config;
 
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger.web.InMemorySwaggerResourcesProvider;
-import springfox.documentation.swagger.web.SwaggerResource;
-import springfox.documentation.swagger.web.SwaggerResourcesProvider;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-@EnableSwagger2
-
+@Configuration
 public class SwaggerConfiguration {
-    @Primary
-    @Bean
-    public SwaggerResourcesProvider swaggerResourcesProvider(
-            InMemorySwaggerResourcesProvider defaultResourcesProvider) {
-        return () -> {
-            List<SwaggerResource> resources = new ArrayList<>();
-            Collections.singletonList("clinica-odontologica")
-                    .forEach(resourceName -> resources.add(loadResource(resourceName)));
-            return resources;
-        };
-    }
 
-    private SwaggerResource loadResource(String resource) {
-
-        SwaggerResource wsResource = new SwaggerResource();
-        wsResource.setName(resource);
-        wsResource.setSwaggerVersion("2.0");
-        wsResource.setLocation("/api-docs/" + resource + ".json");
-
-        return wsResource;
-    }
-
-    @Bean
-    public Docket swagger() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
-                .build();
-    }
+   @Bean
+   public OpenAPI clinicaOdontologicaOpenAPI() {
+       return new OpenAPI().info(apiInfo());
+   }
+   private Info apiInfo() {
+       return new Info()
+               .title("Clinica Odontológica API")
+               .description("Clinica Odontológica sample application")
+               .termsOfService("http://swagger.io/terms/")
+               .version("v0.0.1")
+               .license(license())
+               .contact(contact());
+   }
+   private License license() {
+       return new License()
+               .name("MIT Licence")
+               .url("https://opensource.org/licenses/mit-license.php");
+   }
+   private Contact contact() {
+       return new Contact()
+               .name("MAB")
+               .url("https://digitalhouse.com")
+               .email("mab@example.com");
+   }
 }

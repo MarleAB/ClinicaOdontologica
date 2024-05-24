@@ -2,61 +2,28 @@ package com.backend.digitalhouse.clinicaodontologica.dto.entrada.modificacion;
 
 
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TurnoModificacionEntradaDto {
 
     @NotNull
-    private Long id;
+    Long id;
 
     @NotNull()
-    private Long pacienteId;
+    Long pacienteId;
 
     @NotNull()
-    private Long odontologoId;
+    Long odontologoId;
 
     @NotNull()
-    private LocalDateTime fechaYHora;
+    LocalDateTime fechaYHora;
 
-    public TurnoModificacionEntradaDto() {
-    }
-
-    public TurnoModificacionEntradaDto(Long id, Long pacienteId, Long odontologoId, LocalDateTime fechaYHora) {
-        this.id = id;
-        this.pacienteId = pacienteId;
-        this.odontologoId = odontologoId;
-        this.fechaYHora = fechaYHora;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getPacienteId() {
-        return pacienteId;
-    }
-
-    public void setPacienteId(Long pacienteId) {
-        this.pacienteId = pacienteId;
-    }
-
-    public Long getOdontologoId() {
-        return odontologoId;
-    }
-
-    public void setOdontologoId(Long odontologoId) {
-        this.odontologoId = odontologoId;
-    }
-
-    public LocalDateTime getFechaYHora() {
-        return fechaYHora;
-    }
-
-    public void setFechaYHora(LocalDateTime fechaYHora) {
-        this.fechaYHora = fechaYHora;
-    }
 }
