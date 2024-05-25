@@ -37,5 +37,22 @@ public class Turno {
         this.fechaYHora = fechaYHora;
     }
 
+    public void actualizaCita(Paciente paciente, Odontologo odontologo, LocalDateTime fechaYHora) {
+
+        if(paciente == null) {
+            throw new RuntimeException("El paciente no puede ser nulo");
+        }
+        if(odontologo == null) {
+            throw new RuntimeException("El odontologo no puede ser nulo");
+        }
+
+        if(fechaYHora.isAfter(LocalDateTime.now())) {
+            throw new RuntimeException("El odontologo no puede ser nulo");
+        }
+
+        this.paciente = paciente;
+        this.odontologo = odontologo;
+        this.fechaYHora = fechaYHora;
+    }
 
 }
